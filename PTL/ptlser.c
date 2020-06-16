@@ -136,8 +136,40 @@ static  struct pci_device_id	ptlser_pcibrds[] = {
     {PTLSER_VENDOR_ID, PTLSER_DEVICE_8954, PCI_ANY_ID, PCI_ANY_ID, 0, 0, PTLSER_PCI_PORT_4},
     {PTLSER_VENDOR_ID, PTLSER_DEVICE_8952, PCI_ANY_ID, PCI_ANY_ID, 0, 0, PTLSER_PCI_PORT_2},
     {PTLSER_VENDOR_ID, PTLSER_DEVICE_8951, PCI_ANY_ID, PCI_ANY_ID, 0, 0, PTLSER_PCI_PORT_1},
-		{0x494f, 0x10dc, PCI_ANY_ID, PCI_ANY_ID, 0, 0, PTLSER_PCI_PORT_4 },
-	{0}
+    {PCI_VENDOR_ID_ACCESIO, PCI_DEVICE_ID_ACCESIO_PCIE_COM_2SDB, PCI_ANY_ID, PCI_ANY_ID, 0, 0, PTLSER_PCIE_PORT_2},
+    {PCI_VENDOR_ID_ACCESIO, PCI_DEVICE_ID_ACCESIO_MPCIE_COM_2S, PCI_ANY_ID, PCI_ANY_ID, 0, 0, PTLSER_PCIE_PORT_2},
+    {PCI_VENDOR_ID_ACCESIO, PCI_DEVICE_ID_ACCESIO_PCIE_COM_4SDB, PCI_ANY_ID, PCI_ANY_ID, 0, 0, PTLSER_PCIE_PORT_4},
+    {PCI_VENDOR_ID_ACCESIO, PCI_DEVICE_ID_ACCESIO_MPCIE_COM_4S, PCI_ANY_ID, PCI_ANY_ID, 0, 0, PTLSER_PCIE_PORT_4},
+    {PCI_VENDOR_ID_ACCESIO, PCI_DEVICE_ID_ACCESIO_PCIE_COM232_2DB, PCI_ANY_ID, PCI_ANY_ID, 0, 0, PTLSER_PCIE_PORT_2},
+    {PCI_VENDOR_ID_ACCESIO, PCI_DEVICE_ID_ACCESIO_MPCIE_COM232_2, PCI_ANY_ID, PCI_ANY_ID, 0, 0, PTLSER_PCIE_PORT_2},
+    {PCI_VENDOR_ID_ACCESIO, PCI_DEVICE_ID_ACCESIO_PCIE_COM232_4DB, PCI_ANY_ID, PCI_ANY_ID, 0, 0, PTLSER_PCIE_PORT_4},
+    {PCI_VENDOR_ID_ACCESIO, PCI_DEVICE_ID_ACCESIO_MPCIE_COM232_4, PCI_ANY_ID, PCI_ANY_ID, 0, 0, PTLSER_PCIE_PORT_4},
+    {PCI_VENDOR_ID_ACCESIO, PCI_DEVICE_ID_ACCESIO_PCIE_COM_2SMDB, PCI_ANY_ID, PCI_ANY_ID, 0, 0, PTLSER_PCIE_PORT_2},
+    {PCI_VENDOR_ID_ACCESIO, PCI_DEVICE_ID_ACCESIO_MPCIE_COM_2SM, PCI_ANY_ID, PCI_ANY_ID, 0, 0, PTLSER_PCIE_PORT_2},
+    {PCI_VENDOR_ID_ACCESIO, PCI_DEVICE_ID_ACCESIO_PCIE_COM_4SMDB, PCI_ANY_ID, PCI_ANY_ID, 0, 0, PTLSER_PCIE_PORT_4},
+    {PCI_VENDOR_ID_ACCESIO, PCI_DEVICE_ID_ACCESIO_MPCIE_COM_4SM, PCI_ANY_ID, PCI_ANY_ID, 0, 0, PTLSER_PCIE_PORT_4},
+    {PCI_VENDOR_ID_ACCESIO, PCI_DEVICE_ID_ACCESIO_MPCIE_ICM485_1, PCI_ANY_ID, PCI_ANY_ID, 0, 0, PTLSER_PCIE_PORT_1},
+    {PCI_VENDOR_ID_ACCESIO, PCI_DEVICE_ID_ACCESIO_MPCIE_ICM422_2, PCI_ANY_ID, PCI_ANY_ID, 0, 0, PTLSER_PCIE_PORT_2},
+    {PCI_VENDOR_ID_ACCESIO, PCI_DEVICE_ID_ACCESIO_MPCIE_ICM485_2, PCI_ANY_ID, PCI_ANY_ID, 0, 0, PTLSER_PCIE_PORT_2},
+    {PCI_VENDOR_ID_ACCESIO, PCI_DEVICE_ID_ACCESIO_MPCIE_ICM422_4, PCI_ANY_ID, PCI_ANY_ID, 0, 0, PTLSER_PCIE_PORT_4},
+    {PCI_VENDOR_ID_ACCESIO, PCI_DEVICE_ID_ACCESIO_MPCIE_ICM485_4, PCI_ANY_ID, PCI_ANY_ID, 0, 0, PTLSER_PCIE_PORT_4},
+    {PCI_VENDOR_ID_ACCESIO, PCI_DEVICE_ID_ACCESIO_PCIE_ICM_2S, PCI_ANY_ID, PCI_ANY_ID, 0, 0, PTLSER_PCIE_PORT_2},
+    {PCI_VENDOR_ID_ACCESIO, PCI_DEVICE_ID_ACCESIO_PCIE_ICM_4S, PCI_ANY_ID, PCI_ANY_ID, 0, 0, PTLSER_PCIE_PORT_4},
+    {PCI_VENDOR_ID_ACCESIO, PCI_DEVICE_ID_ACCESIO_PCIE_ICM232_2, PCI_ANY_ID, PCI_ANY_ID, 0, 0, PTLSER_PCIE_PORT_2},
+    {PCI_VENDOR_ID_ACCESIO, PCI_DEVICE_ID_ACCESIO_MPCIE_ICM232_2, PCI_ANY_ID, PCI_ANY_ID, 0, 0, PTLSER_PCIE_PORT_2},
+    {PCI_VENDOR_ID_ACCESIO, PCI_DEVICE_ID_ACCESIO_PCIE_ICM232_4, PCI_ANY_ID, PCI_ANY_ID, 0, 0, PTLSER_PCIE_PORT_4},
+    {PCI_VENDOR_ID_ACCESIO, PCI_DEVICE_ID_ACCESIO_MPCIE_ICM232_4, PCI_ANY_ID, PCI_ANY_ID, 0, 0, PTLSER_PCIE_PORT_4},
+    {PCI_VENDOR_ID_ACCESIO, PCI_DEVICE_ID_ACCESIO_PCIE_ICM_2SM, PCI_ANY_ID, PCI_ANY_ID, 0, 0, PTLSER_PCIE_PORT_2},
+    {PCI_VENDOR_ID_ACCESIO, PCI_DEVICE_ID_ACCESIO_PCIE_COM422_4, PCI_ANY_ID, PCI_ANY_ID, 0, 0, PTLSER_PCIE_PORT_4},
+    {PCI_VENDOR_ID_ACCESIO, PCI_DEVICE_ID_ACCESIO_PCIE_COM485_4, PCI_ANY_ID, PCI_ANY_ID, 0, 0, PTLSER_PCIE_PORT_4},
+    {PCI_VENDOR_ID_ACCESIO, PCI_DEVICE_ID_ACCESIO_PCIE_COM422_8, PCI_ANY_ID, PCI_ANY_ID, 0, 0, PTLSER_PCIE_PORT_8},
+    {PCI_VENDOR_ID_ACCESIO, PCI_DEVICE_ID_ACCESIO_PCIE_COM485_8, PCI_ANY_ID, PCI_ANY_ID, 0, 0, PTLSER_PCIE_PORT_8},
+    {PCI_VENDOR_ID_ACCESIO, PCI_DEVICE_ID_ACCESIO_PCIE_COM232_4, PCI_ANY_ID, PCI_ANY_ID, 0, 0, PTLSER_PCIE_PORT_4},
+    {PCI_VENDOR_ID_ACCESIO, PCI_DEVICE_ID_ACCESIO_PCIE_COM232_8, PCI_ANY_ID, PCI_ANY_ID, 0, 0, PTLSER_PCIE_PORT_8},
+    {PCI_VENDOR_ID_ACCESIO, PCI_DEVICE_ID_ACCESIO_PCIE_COM_4SM, PCI_ANY_ID, PCI_ANY_ID, 0, 0, PTLSER_PCIE_PORT_4},
+    {PCI_VENDOR_ID_ACCESIO, PCI_DEVICE_ID_ACCESIO_PCIE_COM_8SM, PCI_ANY_ID, PCI_ANY_ID, 0, 0, PTLSER_PCIE_PORT_8},
+    {PCI_VENDOR_ID_ACCESIO, PCI_DEVICE_ID_ACCESIO_PCIE_ICM_4SM, PCI_ANY_ID, PCI_ANY_ID, 0, 0, PTLSER_PCIE_PORT_4},
+    {0}
 };
 
 MODULE_DEVICE_TABLE(pci, ptlser_pcibrds);
@@ -185,7 +217,6 @@ struct ptlser_hwconf {
 	unsigned long	vector_mask;
 	int		        uart_type;
 	unsigned char	*ioaddr[PTLSER_PORTS_PER_BOARD];
-	unsigned      io_port_addr[PTLSER_PORTS_PER_BOARD];
 	int		        baud_base[PTLSER_PORTS_PER_BOARD];
 	ptlser_pci_info	pciInfo;
 	int		        MaxCanSetBaudRate[PTLSER_PORTS_PER_BOARD];
@@ -200,7 +231,6 @@ struct ptlser_struct {
 #endif
 	int			        port;
 	unsigned char		*base;		/* port base address */
-	unsigned        io_base;
 	int			        irq;		/* port using irq no. */
 	int			        baud_base;	/* max. speed */
 	int			        flags;		/* defined in tty.h */
@@ -419,18 +449,13 @@ static int ptlser_get_PCI_conf(int busnum, int devnum, int board_type, struct pt
 	ioaddress = ioremap(pci_resource_start(pdev,1), pci_resource_len(pdev,1));
 	printk (DRIVER_NAME "ioaddress = %p, start=0x%llx ", ioaddress, pci_resource_start(pdev,1));
 
-	request_region(pci_resource_start(pdev, 0), pci_resource_len(pdev, 0), "ptlser(IO)");
-
-	printk (DRIVER_NAME "region zero start=0x%llx ", pci_resource_start(pdev,0));
 	
 	for (i = 0; i < hwconf->ports; i++) {
 		hwconf->ioaddr[i] = ioaddress + (i * PTLSER_MEMORY_RANGE);
-		hwconf->io_port_addr[i] = pci_resource_start(pdev, 0) + (i * 8);
 		if(i == 3){
 			switch(board_type){
 			case PTLSER_PCIE_PORT_4:
 				hwconf->ioaddr[i] = ioaddress + (PTLSER_PORT8 * PTLSER_MEMORY_RANGE);
-				hwconf->io_port_addr[i] = pci_resource_start(pdev, 0) + 0x38;
 				break;
 			default:
 				break;
@@ -597,8 +622,8 @@ static void ptlser_close(struct tty_struct * tty, struct file * filp)
 #endif
 	unsigned long timeout;
 	unsigned char reg_flag;	
-  printk(DRIVER_NAME "port %d  ptlser_close (jiff=%lu).\n", info->port, jiffies);
 	PTLSER_LOCK_INIT();
+  printk(DRIVER_NAME "port %d  ptlser_close (jiff=%lu).\n", info->port, jiffies);
 
 	if ( PORTNO(tty) == PTLSER_PORTS )
 	    return;
@@ -859,7 +884,7 @@ static void ptlser_put_char(struct tty_struct * tty, unsigned char ch)
 
 static void ptlser_flush_chars(struct tty_struct * tty)
 {
-	char fcr;
+	//char fcr;
 	struct ptlser_struct *info = (struct ptlser_struct *)tty->driver_data;
 	PTLSER_LOCK_INIT();
 
@@ -927,7 +952,7 @@ static int ptlser_chars_in_buffer(struct tty_struct * tty)
 static void ptlser_flush_buffer(struct tty_struct * tty)
 {
 	struct ptlser_struct *info = (struct ptlser_struct *)tty->driver_data;
-	char fcr;
+	//char fcr;
 	PTLSER_LOCK_INIT();
 
 	PTLSER_LOCK(&info->slock);
@@ -1394,11 +1419,10 @@ static irqreturn_t ptlser_interrupt(int irq, void *dev_id)
 static IRQ_RET ptlser_interrupt(int irq, void *dev_id, struct pt_regs * regs)
 #endif
 {
-	int			status, iir, i;
+	int			status, i;
 	struct ptlser_struct *	info;
 	struct ptlser_struct *	port;
 	int			max, msr;
-	int			int_cnt;
 	int			handled=0;
 
 	port = 0;
@@ -2196,7 +2220,6 @@ static int ptlser_change_speed(struct ptlser_struct *info, struct termios *old_t
 
 static int ptlser_set_baud_ex(struct ptlser_struct *info, long newspd)
 {
-	int		i;
 	int		quot = 0;
 	unsigned char	cval;
 	int scr;
@@ -2247,13 +2270,6 @@ static int ptlser_set_baud_ex(struct ptlser_struct *info, long newspd)
 
 	printk(DRIVER_NAME "info->base = %p, UART_DLL = %d", info->base, UART_DLL);
 
-	// cval = inb(info->io_base + UART_LCR);
-	// outb(cval | UART_LCR_DLAB, info->io_base + UART_LCR);  /* set DLAB */
-	// outb(1, info->io_base + UART_DLL);	    /* LS of divisor */
-	// outb(0, info->io_base + UART_DLM); 	    /* MS of divisor */
-	// outb(scr, info->io_base + 2); 	    /* scr */
-	// outb(cval, info->io_base + UART_LCR);		    /* reset DLAB */
-
 	cval = PTLSER_READ_REG(info->base + UART_LCR);
 	PTLSER_WRITE_REG(cval | UART_LCR_DLAB, info->base + UART_LCR);  /* set DLAB */
 	PTLSER_WRITE_REG(1, info->base + UART_DLL);	    /* LS of divisor */
@@ -2261,13 +2277,7 @@ static int ptlser_set_baud_ex(struct ptlser_struct *info, long newspd)
 	PTLSER_WRITE_REG(16 - scr, info->base + 2); 	    /* scr */
 	PTLSER_WRITE_REG(cval, info->base + UART_LCR);		    /* reset DLAB */
 
-	// cval = PTLSER_READ_REG(info->base + 0x7);
-	// PTLSER_WRITE_REG(cval | 0x80, info->base + 0x7);
-	// PTLSER_WRITE_REG(15, info->base + 0x16);
-	// PTLSER_WRITE_REG(cval, info->base + 0x7);
-
 	PTLSER_WRITE_REG(96, info->base + PTLSER_RTL_OFFSET);
-	//PTLSER_WRITE_REG(256, info->base + PTLSER_RTL_OFFSET);
 
     return ret;
 }
@@ -2646,7 +2656,6 @@ int ptlser_initHw(int board,struct ptlser_hwconf *hwconf)
 	for ( i=0; i<hwconf->ports; i++, n++, info++ ) {
 		info->port = n;
 		info->base = hwconf->ioaddr[i];
-		info ->io_base = hwconf->io_port_addr[i];
 		info->irq = hwconf->irq;
 		info->board_type = hwconf->board_type;
 		info->flags = ASYNC_SHARE_IRQ;
