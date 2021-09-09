@@ -10,53 +10,7 @@ If you have any of the following cards and your kernel doesn't detect it please 
 
 Support for baudrates higher than 921600 for ACCES PCI COM cards was added in kernel 5.3. If you require higher baud rate support and are unable to move to kernel 5.3 please contact ACCES for support options.
 
-## Correct number of ports
-
-On some kernel versions more ports would be created than exist on the system. Depending on your distribution the patch to address this may have been backported to your kernel. The additional ports that are created can be ignored. If your design requires the correct number of ports please contact ACCES support.
-
-For example, an mPCIe-COM-2S installs as follows...
-```bash
-dmesg | grep tty
-...
-> [    1.488105] 0000:02:00.0: ttyS4 at I/O 0xe000 (irq = 17, base_baud = 921600) is a ST16650
-> [    1.490770] 0000:02:00.0: ttyS5 at I/O 0xe008 (irq = 17, base_baud = 921600) is a ST16650
-> [    1.493416] 0000:02:00.0: ttyS6 at I/O 0xe010 (irq = 17, base_baud = 921600) is a ST16650
-> [    1.496069] 0000:02:00.0: ttyS7 at I/O 0xe018 (irq = 17, base_baud = 921600) is a ST16650
-```
-... so ttyS6 and ttyS7 should be ignored.
-
-The ttyS devices are created in order, so ttyS4 is Port A and ttyS5 is Port B.
-
-## Fourth port at wrong address.
-### This issue only affects four port cards
-
-On some kernel versions the fourth port of a four port ACCES PCI COM card will be set to the wrong address. Depending on your distribution the patch to address this may have been backported to your kernel.
-
-For example, For example, an mPCIe-COM-4SM installs as follows...
-```bash
-dmesg | grep tty
-...
-> [    1.488105] 0000:02:00.0: ttyS4 at I/O 0xe000 (irq = 17, base_baud = 921600) is a ST16650
-> [    1.490770] 0000:02:00.0: ttyS5 at I/O 0xe008 (irq = 17, base_baud = 921600) is a ST16650
-> [    1.493416] 0000:02:00.0: ttyS6 at I/O 0xe010 (irq = 17, base_baud = 921600) is a ST16650
-> [    1.496069] 0000:02:00.0: ttyS7 at I/O 0xe018 (irq = 17, base_baud = 921600) is a ST16650
-```
-...but the I/O address of ttyS7 is 0xe038, so ttyS7 will not work "out of the box" in these kernels
-
-To get the fourth ttyS to work correctly you will need to issue a setserial command ...
-```bash
-setserial /dev/ttyS7 port 0xe038
-```
-... where "0xe038" is the address of the first (lowest I/O addressed) port plus 0x0038.  This will result in...
-```bash
-dmesg | grep tty
-...
-> [    1.488105] 0000:02:00.0: ttyS4 at I/O 0xe000 (irq = 17, base_baud = 921600) is a ST16650
-> [    1.490770] 0000:02:00.0: ttyS5 at I/O 0xe008 (irq = 17, base_baud = 921600) is a ST16650
-> [    1.493416] 0000:02:00.0: ttyS6 at I/O 0xe010 (irq = 17, base_baud = 921600) is a ST16650
-> [    1.496069] 0000:02:00.0: ttyS7 at I/O 0xe038 (irq = 17, base_baud = 921600) is a ST16650
-```
-...which is correct.
+## Scroll down for troubleshooting on older kernels
 
 ## Configuring the per-port protocol for RS232, RS422, or RS485 (PCIe only)
 
@@ -102,3 +56,54 @@ Note that the configuration nybbles for unused ports should be cleared to "0"
 Proceed exactly as shown for 4- or 8-port cards, but understand that the configuration nybbles for ports C through H should be cleared to "0".  That is, the 32-bit configuration register can be thought of as `xxxxxxBA` or `xxxxxxxA`.
 
 http://datasheet.octopart.com/PI7C9X7958ANBE-Pericom-datasheet-11898032.pdf
+
+# TROUBLESHOOTING
+
+## Correct number of ports
+### This issue only affects some two port cards, and only older kernels
+
+On some kernel versions more ports would be created than exist on the system. Depending on your distribution the patch to address this may have been backported to your kernel. The additional ports that are created can be ignored. If your design requires the correct number of ports please contact ACCES support.
+
+For example, an mPCIe-COM-2S installs as follows...
+```bash
+dmesg | grep tty
+...
+> [    1.488105] 0000:02:00.0: ttyS4 at I/O 0xe000 (irq = 17, base_baud = 921600) is a ST16650
+> [    1.490770] 0000:02:00.0: ttyS5 at I/O 0xe008 (irq = 17, base_baud = 921600) is a ST16650
+> [    1.493416] 0000:02:00.0: ttyS6 at I/O 0xe010 (irq = 17, base_baud = 921600) is a ST16650
+> [    1.496069] 0000:02:00.0: ttyS7 at I/O 0xe018 (irq = 17, base_baud = 921600) is a ST16650
+```
+... so ttyS6 and ttyS7 should be ignored.
+
+The ttyS devices are created in order, so ttyS4 is Port A and ttyS5 is Port B.
+
+## Fourth port at wrong address.
+### This issue only affects four port cards, and only older kernels
+
+On some kernel versions the fourth port of a four port ACCES PCI COM card will be set to the wrong address. Depending on your distribution the patch to address this may have been backported to your kernel.
+
+For example, For example, an mPCIe-COM-4SM installs as follows...
+```bash
+dmesg | grep tty
+...
+> [    1.488105] 0000:02:00.0: ttyS4 at I/O 0xe000 (irq = 17, base_baud = 921600) is a ST16650
+> [    1.490770] 0000:02:00.0: ttyS5 at I/O 0xe008 (irq = 17, base_baud = 921600) is a ST16650
+> [    1.493416] 0000:02:00.0: ttyS6 at I/O 0xe010 (irq = 17, base_baud = 921600) is a ST16650
+> [    1.496069] 0000:02:00.0: ttyS7 at I/O 0xe018 (irq = 17, base_baud = 921600) is a ST16650
+```
+...but the I/O address of ttyS7 is 0xe038, so ttyS7 will not work "out of the box" in these kernels
+
+To get the fourth ttyS to work correctly you will need to issue a setserial command ...
+```bash
+setserial /dev/ttyS7 port 0xe038
+```
+... where "0xe038" is the address of the first (lowest I/O addressed) port plus 0x0038.  This will result in...
+```bash
+dmesg | grep tty
+...
+> [    1.488105] 0000:02:00.0: ttyS4 at I/O 0xe000 (irq = 17, base_baud = 921600) is a ST16650
+> [    1.490770] 0000:02:00.0: ttyS5 at I/O 0xe008 (irq = 17, base_baud = 921600) is a ST16650
+> [    1.493416] 0000:02:00.0: ttyS6 at I/O 0xe010 (irq = 17, base_baud = 921600) is a ST16650
+> [    1.496069] 0000:02:00.0: ttyS7 at I/O 0xe038 (irq = 17, base_baud = 921600) is a ST16650
+```
+...which is correct.
