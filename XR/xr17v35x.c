@@ -1165,6 +1165,11 @@ static void serialxr_timeout(unsigned long data)
 
 	unsigned int iir;
 	int lcr;
+    #if LINUX_VERSION_CODE > KERNEL_VERSION(5,15,0)
+	int uart_timeout;
+	uart_timeout =(int)(up->port.frame_time * up->port.fifosize);
+    #endif
+
 
 	lcr = serial_in(up, UART_LCR);  // check value of LCR
 	if (lcr & 0x80) {
@@ -1173,7 +1178,11 @@ static void serialxr_timeout(unsigned long data)
 	iir = serial_in(up, UART_IIR);
 	if (!(iir & UART_IIR_NO_INT))
 		serialxr_handle_port(up);
+    #if LINUX_VERSION_CODE <= KERNEL_VERSION(5,15,0)
 	mod_timer(&up->timer, jiffies + poll_timeout(up->port.timeout));
+    #else
+	mod_timer(&up->timer, jiffies + poll_timeout(uart_timeout));
+    #endif
 }
 
 #define BOTH_EMPTY (UART_LSR_TEMT | UART_LSR_THRE)
@@ -1592,7 +1601,7 @@ serialxr_set_special_baudrate(struct uart_port *port,unsigned int special_baudra
 
 static void
 serialxr_set_termios(struct uart_port *port, struct ktermios *termios,
-		       struct ktermios *old)
+		       const struct ktermios *old)
 {
 struct uart_xr_port *up = (struct uart_xr_port *)port;
 unsigned char cval;
